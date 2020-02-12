@@ -1,0 +1,23 @@
+{
+  "name": "ssa",
+  "version": "1.0.0",
+  "description": "A simple agent that updates the sample rate of a lora meter gateway",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "keywords": [
+    "IoT",
+    "Agri",
+    "Smart"
+  ],
+  "author": "Cristiano Aguzzi",
+  "license": "MIT",
+  "dependencies": {
+    "@arces-wot/sepa-js": "^0.10.7",
+    "mqtt": "^3.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^7.0.1"
+  }
+}
