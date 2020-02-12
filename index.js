@@ -13,15 +13,22 @@ client.on("connect",() => {
     let start;
     console.log("Connected to application")
 
-    client.subscribe("application/10/device/#/rx")
+    client.subscribe("application/10/device/+/rx",(error) =>{
+        if(!error){
+            console.log("Application started")
+        }else{
+            console.log("Error on subscribing",error)
+        }
+    } )
 
 })
 
 client.on('message', function (topic, message) {
+    console.log(topic,message)
     if(!deviceMap[topic]){
         console.log("New candidate device found!")
         const regex = /application\/10\/device\/(?<id>([a-z]|[1-9])*)\/rx/gm;
-        const m = regex.exec(str)
+        const m = regex.exec(topic)
         const id = m.groups.id
         
         const data = JSON.parse(message.toString())
